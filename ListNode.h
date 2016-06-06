@@ -20,6 +20,17 @@ struct ListNode{
 	}
 };
 
+class SingleLinkedList{
+
+public:
+	void insert();
+	void remove(int data);
+	void display();
+
+
+private:
+	ListNode *root;
+};
 
 
 #endif /* LISTNODE_H_ */
