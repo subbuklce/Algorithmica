@@ -14,7 +14,7 @@ using namespace std;
 struct ListNode{
 	int data;
 	ListNode *next;
-
+	ListNode(){};
 	ListNode(int value):data(value),next (NULL){
 
 	}

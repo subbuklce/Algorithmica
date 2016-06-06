@@ -6,5 +6,18 @@
  */
 
 
+#include "ListNode.h"
 
+
+int main(){
+
+	SingleLinkedList instance;
+    instance.insert();
+    instance.display();
+    instance.remove(1);
+    instance.remove(9);
+    instance.display();
+
+	return 0;
+}
 
