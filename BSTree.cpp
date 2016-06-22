@@ -8,49 +8,75 @@
 
 #include "BSTree.h"
 
-void BSTree::display(BSTreeNodePtr current){
-	if(current == NULL){
-		cout<<"null";
+void BSTree::display(){
+	BSTreeNodePtr tmp = root;
+	while(true){
+		if(tmp == NULL){
+			cout<<"null\n";
+			break;
+
+		}
+		if(tmp->left != NULL){
+			cout<<endl<<tmp->data;
+			tmp = tmp->left;
+
+		}
+		if(tmp->right != NULL){
+			cout<<endl<<tmp->data;
+			tmp = tmp->right;
+			continue;
+		}
+		if(tmp->left == NULL &&
+				tmp->right == NULL	){
+			cout<<endl<<tmp->data;
+			return;
+		}
+
+
 	}
-	else {
-		cout<<current->data;
-		display(current->left);
-		display(current->right);
-	}
+
+
 }
 
-/*void BSTree::insert(BSTreeNodePtr current , int &value){
-	if(current == NULL){
-		current = new BSTreeNode;
-		current ->data = value;
-		current->left = current->right = NULL;
-		return ;
-	}
-	if(value < current->data){
-		insert(current->left, value);
-	}
-	else{
-		insert(current->right, value);
-	}
-}*/
+
 
 void BSTree::insert( int &value){
 	BSTreeNodePtr tmp = root;
+	if(tmp == NULL){
+		tmp = new BSTreeNode;
+		tmp -> data = value;
+		root = tmp;
 
+
+		return;
+
+	}
 	while(true){
-		if(tmp == NULL){
-			tmp = new BSTreeNode;
-			tmp->data = value;
-			tmp->left = tmp->right = NULL;
-			if(root= NULL)
-				root = tmp;
-			break;
+		if(value < tmp->data){
+			if(tmp->left== NULL){
+				tmp->left = new BSTreeNode;
+				tmp->left -> data = value;
+				break;
+				return;
+			}
+			else{
+				tmp= tmp->left;
+				continue;
+			}
+
 		}
-		if(tmp->data > value){
-			tmp= tmp->left;
-		}
-		else{
-			tmp= tmp->right;
+		else
+		{
+			if(tmp->right== NULL){
+				tmp->right = new BSTreeNode;
+				tmp->right -> data = value;
+				break;
+				return;
+			}
+			else{
+				tmp= tmp->right;
+				continue;
+			}
 		}
 
 	}

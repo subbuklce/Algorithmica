@@ -8,6 +8,7 @@
 #ifndef BSTREE_H_
 #define BSTREE_H_
 #include<iostream>
+#include <stdlib.h>
 using namespace std;
 
 struct BSTreeNode;
@@ -16,6 +17,9 @@ typedef BSTreeNode* BSTreeNodePtr;
 struct BSTreeNode{
 	int data;
 	BSTreeNodePtr left,right;
+	BSTreeNode():data(0),left(NULL),right(NULL){
+
+	}
 
 };
 
@@ -25,14 +29,14 @@ private:
 	int size;
 public:
 	BSTree():root(NULL),size(0){
-//		root = new BSTreeNode;
-//		root->data = -1 ;
-//		root->left = root->right = NULL;
+		//		root = new BSTreeNode;
+		//		root->data = -1 ;
+		//		root->left = root->right = NULL;
 	};
 	BSTreeNodePtr getRootAddress();
-	void insert(BSTreeNodePtr,int&);
+
 	void remove();
-	void display(BSTreeNodePtr);
+	void display();
 	void insert( int &value);
 };
 
